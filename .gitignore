@@ -1,0 +1,5 @@
+venv/
+static/images
+*.pyc
+.vagrant
+.DS_Store
