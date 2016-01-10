@@ -9,4 +9,8 @@ def main_route():
 
 @main.route('/hello')
 def hello():
-    return "Hello my fellows!"
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM discussion1.messages") #single " only!
+    msgs = cur.fetchall()
+    output = "<br>".join("Message #{0}: {1}".format(msgs.index(msg), msg[0]) for msg in msgs)
+    return output
